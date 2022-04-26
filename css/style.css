@@ -1,0 +1,29 @@
+header{
+  height: 80px;
+}
+
+footer{
+  height: 80px;
+}
+
+main{
+  height: calc(100vh - 160px);
+}
+
+.number_random_box{
+  background-color: rgba(240,240,240, 0.6);
+  border-radius: 10px;
+}
+
+.number_insert_box{
+  background-color: rgba(240,240,240, 0.6);
+  border-radius: 10px;
+}
+
+.correct{
+  color: green;
+}
+
+.wrong{
+  color: red;
+}

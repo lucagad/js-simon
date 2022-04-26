@@ -5,11 +5,63 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
   <link rel="stylesheet" href="css/style.css">
-  <title>Document</title>
+  <title>Simon Says</title>
 </head>
 <body>
   
+<div class="cover-container d-flex p-3 mx-auto flex-column text-white bg-dark text-center">
+  
+  <header class="mb-auto">
+    <div>
+      <h3 class="float-md-start mb-0">Simon Says</h3>
+      <!-- <nav class="nav nav-masthead justify-content-center float-md-end">
+        <a class="nav-link active" aria-current="page" href="#">Home</a>
+        <a class="nav-link" href="#">Features</a>
+        <a class="nav-link" href="#">Contact</a>
+      </nav> -->
+    </div>
+  </header>
+
+  <main class="d-flex flex-column justify-content-center px-3">
+  <div class="main_top">
+    <h1>Regole</h1>
+    <p class="lead">A click del bottone verranno mostrati 5 numeri casuali che dovrai memorizzare. <br> Passati 5 secondi i numeri spariranno ed dovrai cercare di ricordarli ed inserirli nell'apposito spazio.</p>
+    <p class="lead">
+      <a href="#" class="btn btn-lg btn-secondary fw-bold border-white bg-white text-black">Inizia</a>
+    </p>
+  </div>
+
+  <div class="main_bottom d-flex flex-column justify-content-between align-content-center my-3">
+
+    <div class="number_random_box d-flex flex-column justify-content-between align-content-center my-3">
+      <h5 class="my-2">I numeri da memorizzare sono:</h5>
+      <div class="number_random my-3">
+      </div>
+
+    </div>
+
+    <div class="number_insert_box d-flex flex-column justify-content-between align-content-center my-3">
+      <h5 class="my-2">I numeri che hai inserito sono:</h5>
+      <div class="number_insert my-3">
+      </div>
+
+    </div>
+
+
+
+  </div>
+
+  </main>
+
+  <footer class="mt-auto text-white-50">
+    <p>Made with &hearts; with  Bootstrap</p>
+  </footer>
+</div>
+
+
 
   <script src="js/script.js"></script>
 </body>
