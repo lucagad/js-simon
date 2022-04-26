@@ -29,26 +29,29 @@ for (let i = 0; i < numberOfNumber; i++){
 
 console.log(winningNumbers);
 
-// Ciclo per far inserire 5 numeri all'utente
-for (let i = 0; i < numberOfNumber; i++){
-
-  insertNumbers[i] = parseInt(prompt(`Inserisci uno dei ${numberOfNumber} numeri`));
-
-  if(winningNumbers.includes(insertNumbers[i])){
-
-    numberInsertBox.innerHTML += `<span class=" mx-1 fw-bold correct"> ${insertNumbers[i]} </span>`;
-
-  } else {
-    numberInsertBox.innerHTML += `<span class=" mx-1 fw-bold wrong"> ${insertNumbers[i]} </span>`;
-
-  }
-
-  
-} 
-
+setTimeout(insertUser, 5000);
 
 
 // FUNCTIONS
+
+function insertUser (){
+  numberBox.classList.add('hide');
+  // Ciclo per far inserire 5 numeri all'utente
+  for (let i = 0; i < numberOfNumber; i++){
+
+    insertNumbers[i] = parseInt(prompt(`Inserisci uno dei ${numberOfNumber} numeri`));
+
+    if(winningNumbers.includes(insertNumbers[i])){
+      numberInsertBox.innerHTML += `<span class=" mx-1 fw-bold correct"> ${insertNumbers[i]} </span>`;
+
+    } else {
+      numberInsertBox.innerHTML += `<span class=" mx-1 fw-bold wrong"> ${insertNumbers[i]} </span>`;
+    }
+
+  }
+  numberBox.classList.remove('hide');
+
+}
 
 function getRandomNumber(min, max){
 	return  Math.floor(Math.random() * (max - min +1) + min );

@@ -27,3 +27,7 @@ main{
 .wrong{
   color: red;
 }
+
+.hide{
+  display: none;
+}
