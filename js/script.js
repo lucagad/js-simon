@@ -18,21 +18,32 @@ let insertNumbers = [];
 
 const numberBox = document.querySelector('.number_random');
 const numberInsertBox = document.querySelector('.number_insert');
+const btnStart = document.querySelector('.btnStart');
 
-// Ciclo per estrarre 5 numeri random
-for (let i = 0; i < numberOfNumber; i++){
-
-  winningNumbers[i] = getRandomNumber(minNumber,maxNumber);
-  numberBox.innerHTML += `<span class=" mx-1 fw-bold"> ${winningNumbers[i]} </span>`;
-
-} 
-
-console.log(winningNumbers);
-
-setTimeout(insertUser, 5000);
+btnStart.addEventListener('click', startGame);
 
 
 // FUNCTIONS
+
+function startGame(){
+  document.querySelector('.main_bottom').classList.remove('d-none');
+  document.querySelector('.main_bottom').classList.add('d-flex');
+
+  randomNumber(minNumber,maxNumber);
+  setTimeout(insertUser, 5000);
+
+}
+
+function randomNumber(minN,maxN){
+  // Ciclo per estrarre 5 numeri random
+  for (let i = 0; i < numberOfNumber; i++){
+
+    winningNumbers[i] = getRandomNumber(minN,maxN);
+    numberBox.innerHTML += `<span class=" mx-1 fw-bold"> ${winningNumbers[i]} </span>`;
+
+  }
+
+}
 
 function insertUser (){
   numberBox.classList.add('hide');
