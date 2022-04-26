@@ -16,22 +16,32 @@ const maxNumber = 10;
 let winningNumbers = [];
 let insertNumbers = [];
 
+let played = false;
+
 const numberBox = document.querySelector('.number_random');
 const numberInsertBox = document.querySelector('.number_insert');
 const btnStart = document.querySelector('.btnStart');
 
 btnStart.addEventListener('click', startGame);
 
-
 // FUNCTIONS
 
 function startGame(){
+
+  if(played){
+    winningNumbers = [];
+    insertNumbers = [];
+    numberBox.innerHTML = "";
+    numberInsertBox.innerHTML = "";
+  }
+
   document.querySelector('.main_bottom').classList.remove('d-none');
   document.querySelector('.main_bottom').classList.add('d-flex');
 
   randomNumber(minNumber,maxNumber);
   setTimeout(insertUser, 5000);
 
+  played = true;
 }
 
 function randomNumber(minN,maxN){
@@ -45,7 +55,7 @@ function randomNumber(minN,maxN){
 
 }
 
-function insertUser (){
+function insertUser(){
   numberBox.classList.add('hide');
   // Ciclo per far inserire 5 numeri all'utente
   for (let i = 0; i < numberOfNumber; i++){
