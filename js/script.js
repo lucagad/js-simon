@@ -5,8 +5,16 @@
 
 // Dopo che sono stati inseriti i 5 numeri, il software dice quanti e quali dei numeri da indovinare sono stati individuati.
 
+/****************
+  INIT
+**************/
+
+
 // Quantità di numeri da estrarre
 const numberOfNumber = 5;
+
+// Secondi a disposizione per leggere i numeri
+const secondsToWait = 5;
 
 // Costanti per impostare il range di estrazione dei numeri
 const minNumber = 0;
@@ -24,7 +32,9 @@ const btnStart = document.querySelector('.btnStart');
 
 btnStart.addEventListener('click', startGame);
 
-// FUNCTIONS
+/****************
+  FUNCTIONS
+**************/
 
 function startGame(){
 
@@ -39,7 +49,7 @@ function startGame(){
   document.querySelector('.main_bottom').classList.add('d-flex');
 
   randomNumber(minNumber,maxNumber);
-  setTimeout(insertUser, 5000);
+  setTimeout(insertUser, secondsToWait * 1000);
 
   played = true;
 }
@@ -48,7 +58,7 @@ function randomNumber(minN,maxN){
   // Ciclo per estrarre 5 numeri random
   for (let i = 0; i < numberOfNumber; i++){
 
-    winningNumbers[i] = getRandomNumber(minN,maxN);
+    winningNumbers[i] = getUniqueRandomNumber(minN,maxN);
     numberBox.innerHTML += `<span class=" mx-1 fw-bold"> ${winningNumbers[i]} </span>`;
 
   }
@@ -76,4 +86,24 @@ function insertUser(){
 
 function getRandomNumber(min, max){
 	return  Math.floor(Math.random() * (max - min +1) + min );
+}
+
+// Funzione che genera numeri random univoci
+function getUniqueRandomNumber(min, max){
+
+  let number = null;
+  let valid = false;
+
+  while(!valid){
+
+    number = getRandomNumber(min, max);
+
+    if(!winningNumbers.includes(number)){
+
+      valid = true;
+      winningNumbers.push(number);
+
+    }
+  }
+  return number;
 }
